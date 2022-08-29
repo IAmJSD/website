@@ -26,7 +26,7 @@
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title" id="resultTitle"></p>
-                    <button class="delete" aria-label="close" onclick="closeModals()"></button>
+                    <button class="delete" aria-label="close" data-action="click:closeModals"></button>
                 </header>
                 <section class="modal-card-body">
                     <span id="resultDescription"></span>
@@ -39,16 +39,16 @@
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Contact Me</p>
-                    <button class="delete" aria-label="close" onclick="closeModals()"></button>
+                    <button class="delete" aria-label="close" data-action="click:closeModals"></button>
                 </header>
-                <form onsubmit="formSubmit(event)">
+                <form data-action="submit:formSubmit">
                     <section class="modal-card-body">
                         <p><?php echo $GLOBALS["portfolio_yml"]["contact_message"] ?></p>
                         <div class="field">
                             <label class="label">Name:</label>
                             <div class="control">
                                 <div class="control">
-                                    <input class="input" type="text" id="formName" oninput="validateForm()" placeholder="Name">
+                                    <input class="input" type="text" id="formName" data-action="input:validateForm" placeholder="Name">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                             <label class="label">E-mail Address:</label>
                             <div class="control">
                                 <div class="control">
-                                    <input class="input" type="text" id="formEmail" oninput="validateForm()" placeholder="E-mail Address">
+                                    <input class="input" type="text" id="formEmail" data-action="input:validateForm" placeholder="E-mail Address">
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             <label class="label">Description:</label>
                             <div class="control">
                                 <div class="control">
-                                    <textarea class="textarea" id="formDescription" oninput="validateForm()" placeholder="Description"></textarea>
+                                    <textarea class="textarea" id="formDescription" data-action="input:validateForm" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                 <?php
                     if (!$GLOBALS["cv"]) {
                         if ($GLOBALS["portfolio_yml"]['enable_contact']) {
-                            echo '<a class="button is-link" href="javascript:openForm()" style="margin-right: 5px">Contact</a>';
+                            echo '<a class="button is-link" data-action="click:openForm" style="margin-right: 5px">Contact</a>';
                         }
                         foreach ($GLOBALS["portfolio_yml"]['buttons'] as &$button) {
                             echo(sprintf('<a class="button is-link" href="%s" style="margin-right: 5px">%s</a>', $button['url'], $button['name']));
@@ -193,100 +193,15 @@
                 echo('<footer class="footer" style="padding: 20px">
                 <div class="content has-text-centered">
                     <p>
-                        Website template/renderer by <a href="https://jakegealer.me">Jake Gealer</a>. The source code for this website is licensed under the <a href="https://opensource.org/licenses/MPL-2.0">MPL-2.0</a> license.
+                        The source code for this website is licensed under the <a href="https://opensource.org/licenses/MPL-2.0">MPL-2.0</a> license.
+                        It can be found <a href="https://github.com/JakeMakesStuff/jakegealer.me">here</a>.
                     </p>
                 </div>
             </footer>');
             }
         ?>
 
-        <script>
-            // Get the various elements we need to manage.
-            var resultModal = document.getElementById("resultModal");
-            var resultTitle = document.getElementById("resultTitle");
-            var resultDescription = document.getElementById("resultDescription");
-            var contactForm = document.getElementById("contactForm");
-            var formButton = document.getElementById("formButton");
-            var formEmail = document.getElementById("formEmail");
-            var formName = document.getElementById("formName");
-            var formDescription = document.getElementById("formDescription");
-
-            // Validates the form.
-            function validateForm() {
-                formButton.disabled = formEmail.value.length == 0 || formName.value.length == 0 || formDescription.value.length == 0 || hcaptchaResult == null;
-            }
-
-            // Used to get/set the hCAPTCHA result.
-            var hcaptchaResult = null;
-            function hcaptchaResultSet(datakey) {
-                hcaptchaResult = datakey;
-                validateForm();
-            }
-
-            // Opens the result modal.
-            function openResult(title, description) {
-                contactForm.className = "modal";
-                resultTitle.innerText = title;
-                resultDescription.innerText = description;
-                resultModal.className = "modal is-active";
-            }
-
-            // Closes all modals.
-            function closeModals() {
-                resultModal.className = "modal";
-                contactForm.className = "modal";
-            }
-
-            // Handle the form being submitted.
-            function formSubmit(e) {
-                // Prevent the default action.
-                e.preventDefault();
-
-                // Figure out what to do with the information.
-                if (hcaptchaResult == null) {
-                    // Tell the user to fill out the hCaptcha.
-                    openResult("hCaptcha Blank", "You did not fill out the hCaptcha.");
-                } else {
-                    // Mark the button as loading.
-                    formButton.className = "button is-success is-loading";
-
-                    // Create a HTTP request.
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4) {
-                            if (this.status == 204) {
-                                // Success!
-                                openResult("Form Submission Successful", "I have successfully received your message!");
-                            } else if (this.status == 400) {
-                                // This was us.
-                                openResult("Form Submission Error", xhttp.responseText);
-                            } else {
-                                // Cloudflare or the mailing service is having a bad day.
-                                openResult("Form Submission Error", "There was an error submitting the form.");
-                            }
-                        }
-
-                        // Remove loading from the form.
-                        formButton.className = "button is-success";
-                    };
-                    xhttp.open("POST", "/v1/submit", true);
-                    xhttp.setRequestHeader("Content-Type", "application/json");
-                    xhttp.send(JSON.stringify({"name": formName.value, "description": formDescription.value, "email": formEmail.value, "hcaptcha": hcaptchaResult}));
-
-                    // Reset hCaptcha.
-                    hcaptchaResult = null;
-                    hcaptcha.reset();
-                    validateForm();
-                }
-
-                // Prevent standard form behaviour.
-                return false;
-            }
-
-            // Opens the contact form.
-            function openForm() {
-                contactForm.className = "modal is-active";
-            }
-        </script>
+        <script src="/main.js" async defer></script>
+        <script src="/preloader.js" async defer></script>
     </body>
 </html>
