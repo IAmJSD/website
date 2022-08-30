@@ -5,12 +5,12 @@
     var D = document.getElementById.bind(document);
 
     // Validates the form.
+    var hcaptchaResult = null;
     function validateForm() {
         D("formButton").disabled = D("formEmail").value.length == 0 || D("formName").value.length == 0 || D("formDescription").value.length == 0 || hcaptchaResult == null;
     }
 
     // Used to get/set the hCAPTCHA result.
-    var hcaptchaResult = null;
     function hcaptchaResultSet(datakey) {
         hcaptchaResult = datakey;
         validateForm();
@@ -86,7 +86,7 @@
     }
 
     // Used to use a function from the blog JavaScript.
-    function blogJavaScript(funcName) {
+    function blogJavaScript(funcName, onerror) {
         return function () {
             if (window.blogFunctions) {
                 // Just call the blog functions.
@@ -99,11 +99,13 @@
             } catch (_) {
                 window.blogWaiters = [[funcName, arguments]];
                 var script = document.createElement("script");
-                script.src = "/blog.js";
+                script.onerror = onerror.apply(this, arguments);
+                script.src = "/assets/js/blog.js";
                 script.async = true;
                 script.defer = true;
                 document.body.appendChild(script);
             }
+            return false;
         };
     }
 
@@ -111,7 +113,7 @@
     window.pageLoad = function () {
         var events = {
             "validateForm": validateForm, "closeModals": closeModals, "formSubmit": formSubmit,
-            "openForm": openForm, "blogLink": blogJavaScript("blogLink"),
+            "openForm": openForm, "blogLink": blogJavaScript("blogLink", function (e) { window.location = e.target.getAttribute("href"); }),
         };
         document.querySelectorAll("[data-action]").forEach(function(element) {
             // Get the event data.
