@@ -1,10 +1,14 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 // Echos out the template.
-function echo_site_structure($title, $description, $body) {
+function echo_site_structure($title, $description, $body, $path) {
     $title = htmlspecialchars($title);
     $description = htmlspecialchars($description);
     $name = $GLOBALS["portfolio_yml"]["name"];
-    $actual_link = htmlspecialchars("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ENT_QUOTES, "UTF-8");
+    $path_first_slash_trim = substr($path, 1);
+    $actual_link = $GLOBALS['portfolio_yml']['url'];
+    $actual_link = htmlspecialchars("$actual_link$path_first_slash_trim", ENT_QUOTES, "UTF-8");
     $footer = "";
     if (!$GLOBALS["cv"]) {
         $footer = '<footer class="footer" style="padding: 20px">
@@ -43,4 +47,50 @@ function echo_site_structure($title, $description, $body) {
     </body>
 </html>
 END;
+}
+
+// Handle parsing a markdown file.
+function parse_markdown_file($fp) {
+    // Get the file.
+    $file = file_get_contents($fp);
+
+    // Process the header containing the title, description, and date.
+    $split = explode("---", $file, 2);
+    $header = $split[0];
+    $content = $split[1];
+
+    // Parse the header.
+    $header = yaml_parse($header);
+
+    // Do our best to parse the date.
+    $header["Date"] = strtotime($header["Date"]);
+
+    // Return the results.
+    return array(
+        "title" => $header["Title"],
+        "description" => $header["Description"],
+        "date" => $header["Date"],
+        "content" => Parsedown::instance()->text($content),
+    );
+}
+
+// Get all the markdown files in the blog folder and return them in date order.
+function get_blog_posts() {
+    // Get all the files in the blog folder.
+    $files = glob(__DIR__ . "/blog/*.md");
+
+    // Parse the files.
+    $parsed_files = array();
+    foreach ($files as $file) {
+        $slug = basename($file, ".md");
+        $parsed_files[$slug] = parse_markdown_file($file);
+    }
+
+    // Sort the files by date.
+    uasort($parsed_files, function($a, $b) {
+        return $b["date"] - $a["date"];
+    });
+
+    // Return the files.
+    return $parsed_files;
 }

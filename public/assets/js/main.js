@@ -85,35 +85,56 @@
         D("contactForm").className = "modal is-active";
     }
 
-    // Used to use a function from the blog JavaScript.
-    function blogJavaScript(funcName, onerror) {
-        return function () {
-            if (window.blogFunctions) {
-                // Just call the blog functions.
-                window.blogFunctions[funcName].apply(this, arguments);
-                return;
+    // Does the page replacement.
+    function pageReplace(uri, cb) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    // Update the page data.
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(xhr.responseText, "text/html");
+                    var newBody = doc.body;
+                    var oldBody = document.body;
+                    oldBody.parentNode.replaceChild(newBody, oldBody);
+                    document.title = doc.title;
+
+                    // Set the state of the pages history.
+                    history.pushState({}, doc.title, uri);
+
+                    // Update the JS state of items on the page and call the callback.
+                    window.pageLoad();
+                } else {
+                    // Call the callback.
+                    cb();
+                }
             }
-            arguments[0].preventDefault();
-            try {
-                window.blogWaiters.push([funcName, arguments]);
-            } catch (_) {
-                window.blogWaiters = [[funcName, arguments]];
-                var script = document.createElement("script");
-                script.onerror = onerror.apply(this, arguments);
-                script.src = "/assets/js/blog.js";
-                script.async = true;
-                script.defer = true;
-                document.body.appendChild(script);
-            }
-            return false;
         };
+        xhr.onerror = function() {
+            // Call the callback.
+            cb();
+        };
+        xhr.open("GET", uri, true);
+        xhr.send();
     }
+
+    // Defines a function to handle blog link clicks.
+    function blogLink(event) {
+        var href = event.target.getAttribute("href");
+        if (!window.history) {
+            // If the browser doesn't support history, return and let the browser handle it.
+            return;
+        }
+        pageReplace(href, function () { window.location = href; });
+        event.preventDefault();
+        return false;
+    };
 
     // Executes when a page is loaded.
     window.pageLoad = function () {
         var events = {
             "validateForm": validateForm, "closeModals": closeModals, "formSubmit": formSubmit,
-            "openForm": openForm, "blogLink": blogJavaScript("blogLink", function (e) { window.location = e.target.getAttribute("href"); }),
+            "openForm": openForm, "blogLink": blogLink,
         };
         document.querySelectorAll("[data-action]").forEach(function(element) {
             // Get the event data.
@@ -131,4 +152,9 @@
         });
     }
     window.pageLoad();
+
+    // Add a window listener for popstate.
+    window.addEventListener("popstate", function () {
+        pageReplace(document.location.pathname, function () { window.location.reload(); });
+    });
 })();

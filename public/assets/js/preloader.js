@@ -17,7 +17,10 @@
                 var parser = new DOMParser();
                 var doc = parser.parseFromString(this.responseText, "text/html");
                 doc.querySelectorAll("a").forEach(function (a) {
-                    crawlLink(a.getAttribute("href"));
+                    var href = a.getAttribute("href");
+                    if (href[0] == "/") {
+                        crawlLink(href);
+                    }
                 });
             }
         }

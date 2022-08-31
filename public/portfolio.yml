@@ -5,9 +5,6 @@ description: Hi! My name is Jake Gealer and I am a passionate developer from the
 
 buttons:
   -
-    name: Blog
-    url: https://blog.jakegealer.me/
-  -
     name: LinkedIn
     url: https://www.linkedin.com/in/jake-gealer-b2406116b/
 # The buttons for the top of the website.
