@@ -1,12 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercelServerless from "@astrojs/vercel/serverless";
+import vercelServerless from "@astrojs/vercel";
 import rehypeSemanticImages from "@benjc/rehype-semantic-images";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "hybrid",
+    output: "static",
     integrations: [tailwind()],
     adapter: vercelServerless({
         webAnalytics: {

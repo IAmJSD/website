@@ -12,19 +12,15 @@ import { description, name, secondLine } from "../info";
             <h3 class="text-xl mt-4" set:html={secondLine} />
 
             <div class="flex mt-6 space-x-4 justify-center">
-                <form action="/blog" class="flex-col" method="get">
-                    <Button text="Blog" />
-                </form>
+                <span class="flex-col">
+                    <Button text="Blog" href="/blog" />
+                </span>
                 <span class="flex-col">
                     <Button text="Contact" id="contact_button" />
                 </span>
-                <form
-                    action="https://bsky.app/profile/astrid.place"
-                    class="flex-col"
-                    method="get"
-                >
-                    <Button text="Bluesky" />
-                </form>
+                <span class="flex-col">
+                    <Button text="Bluesky" href="https://bsky.app/profile/astrid.place" />
+                </span>
             </div>
         </div>
     </div>

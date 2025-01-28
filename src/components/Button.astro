@@ -2,14 +2,23 @@
 interface Props {
     text: string;
     id?: string;
+    href?: string;
 }
 
-const { text, id } = Astro.props;
+const { text, id, href } = Astro.props;
+
+const Tag = href ? "p" : "button";
 ---
 
-<button
+<Tag
     class="p-3 border-2 border-black dark:border-white rounded-md select-none"
     id={id}
 >
-    <span class="text-lg font-bold">{text}</span>
-</button>
+    {
+        href ? (
+            <a href={href} class="text-lg font-bold">{text}</a>
+        ) : (
+            <span class="text-lg font-bold">{text}</span>
+        )
+    }
+</Tag>
