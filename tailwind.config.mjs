@@ -10,6 +10,14 @@ export default {
                             marginTop: "1em",
                             marginBottom: "1em",
                         },
+                        code: {
+                            "&::before": {
+                                content: "'' !important",
+                            },
+                            "&::after": {
+                                content: "'' !important",
+                            },
+                        },
                         "--tw-prose-bullets": "black",
                     },
                 },
