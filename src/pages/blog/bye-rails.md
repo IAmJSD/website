@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreihj3x3uo5k4wzqzclaz6p3jhsjdv5b6vk26bkdvnr5wvz33vmcpuu"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3licl3qjopc2e"
 layout: ../../layouts/BlogPostLayout.astro
 title: "I can't support Rails and Kamal anymore"
 description: "After the BDFL's recent attacks on transgender people and immigrants, I don't believe there is a good environment for contributions."
