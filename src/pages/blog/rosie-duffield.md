@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreia6pzhaf4cwg3efcasxtnd4xeu53xai5yr7s6p62gomly5ibavece"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3ljpyhlriua2o"
 layout: ../../layouts/BlogPostLayout.astro
 title: "Rosie Duffield's Private Email Server"
 description: "Roses are red, violets are blue, Rosie Duffield has a private email server, what about you"
