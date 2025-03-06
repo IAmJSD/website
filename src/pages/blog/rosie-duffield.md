@@ -52,6 +52,8 @@ So we now know that her private mail server is hosted by [Inmotion Hosting, Inc]
 
 ![traceroute showing a lot of LAX routers](/images/rosie-duffield/traceroute_result.png)
 
+Looking at [Shodan for this IP address](https://www.shodan.io/host/205.134.238.243), it appears it is also on shared hosting and shared by other domains. This presents a risk since if it was using this host at various points in the past, it could have (depending on how quickly the hosting provider patched, which is a variable that is hard to tell) been vulnerable to issues such as Heartbleed. This would pose a risk since a government could hack her as collateral or indeed target a vulnerability they know the UK government isn't vulnerable to in general but her host is, posing a national security risk.
+
 ## So... that typoed domain
 
 So you might recall near the beginning of that story when I said I had to search for the actual domain because the domain in her bio was typoed. Well, there's a funny twist to that. I honestly at first presumed she owned it, but when I did a WHOIS lookup it was starting to look like she didn't. Well, I typed it into Porkbun, and low and behold:
