@@ -58,4 +58,4 @@ So you might recall near the beginning of that story when I said I had to search
 
 ![rosieduffield.co.uk marked as for sale on Porkbun](/images/rosie-duffield/domain_buyable.png)
 
-I laughed my ass off at this news, this domain was just available to buy and use. I immediately bought the domain, and as of the making of this blog post, [there will soon be a service to take emails sent to the domain and put them on a webpage.](https://rosieduffield.co.uk) Probably should've parked that one Rosie, oops!
+I laughed my ass off at this news, this domain was just available to buy and use. I immediately bought the domain, [there will soon be a service to take emails sent to the domain and put them on a webpage.](https://rosieduffield.co.uk) Probably should've parked that one Rosie, oops!
