@@ -6,6 +6,8 @@ description: "Roses are red, violets are blue, Rosie Duffield has a private emai
 
 Rosie Duffield is a formerly Labour MP known for her attacks against transgender people in the UK, support for the Cass review, and general pushing of transphobia within the Houses of Parliament. Unfortunately, she runs a private email server for her MP business instead of using her Parliament email, which has serious national security implications. This blog post isn't an expose on her (there's plenty of good stuff for that on the Internet), but rather her poor security practices.
 
+Thanks so much to [Luna](https://bsky.app/profile/imlunahey.com) for sanity checking this post and some of my ideas here. This wouldn't have been as great without you!
+
 **TLDR:** Rosie Duffield's Bluesky had a unregistered domain in the bio for her email [which I registered.](https://rosieduffield.co.uk) In her day to day practice, she uses a private email server located in America. This poses a serious national security risk.
 
 ## The security implications of using a private email server for MP business
