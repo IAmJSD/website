@@ -8,6 +8,7 @@ description: "Roses are red, violets are blue, Rosie Duffield has a private emai
 ---
 
 **EDIT:** The new site on rosieduffield.co.uk is now up! All emails sent to that domain will be published there. The ending was updated to include this.
+**EDIT 2:** The use of "government business" and national archives line was not accurate. This has been modified, but does not overall change the takeaway of the post.
 
 Rosie Duffield is a formerly Labour MP known for her attacks against transgender people in the UK, support for the Cass review, and general pushing of transphobia within the Houses of Parliament. Unfortunately, she runs a private email server for her MP business instead of using her Parliament email, which has serious national security implications. This blog post isn't an expose on her (there's plenty of good stuff for that on the Internet), but rather her poor security practices.
 
@@ -21,7 +22,7 @@ To summarise, there are a few issues when it comes to her use of a private email
 
 - It is unknown to the government and less well audited the hosts that they might be using. This creates a danger to constituents since MPs are commonly the target of attacks from different governments, and if a cyberattack against the host was successful and something sensitive was sent to them, this could potential endanger lives.
 - It makes it much more difficult (if even possible) to comply with FOIA requests. People have a right to know certain information under UK law, and by using a private server, you endanger that right for people.
-- It destroys data for the National Archives, a deeply important institution in the UK.
+- It can potentially destroy data for the National Archives, a deeply important institution in the UK. It doesn't have to, there are tools that constituents use to get around this, but with the parliament emails it is guaranteed to be archived.
 
 If you care about democracy, this should be extremely concerning to you. This exact situation came up in 2021, when [many government ministers were issued guidance related to their use of private email servers and had to step down.](https://www.bbc.co.uk/news/uk-politics-57642791)
 
@@ -39,7 +40,7 @@ Sure enough, the "Email Me" link at the top of the page goes to a private email 
 
 ![Inspect element showing "Email Me" going to a private email server](/images/rosie-duffield/inspect.png)
 
-Ok - so we have established she does government business from a invalid domain and typos it in her social media. But who runs the mail server? That is a great question! This will get a little bit technical, but I'll try to explain this in the best way I can.
+Ok - so we have established she does constituency business from a invalid domain and typos it in her social media. But who runs the mail server? That is a great question! This will get a little bit technical, but I'll try to explain this in the best way I can.
 
 When your computer sends email, it will first ask the DNS server which holds the records for the domain "where should I send this email". This is called a MX record, and we can use a tool called `dig` to ask for these records. Lets do that with her domain:
 
