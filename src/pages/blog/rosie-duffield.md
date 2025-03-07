@@ -8,6 +8,7 @@ description: "Roses are red, violets are blue, Rosie Duffield has a private emai
 ---
 
 **EDIT:** The new site on rosieduffield.co.uk is now up! All emails sent to that domain will be published there. The ending was updated to include this.
+
 **EDIT 2:** The use of "government business" and national archives line was not accurate. This has been modified, but does not overall change the takeaway of the post.
 
 Rosie Duffield is a formerly Labour MP known for her attacks against transgender people in the UK, support for the Cass review, and general pushing of transphobia within the Houses of Parliament. Unfortunately, she runs a private email server for her MP business instead of using her Parliament email, which has serious national security implications. This blog post isn't an expose on her (there's plenty of good stuff for that on the Internet), but rather her poor security practices.
