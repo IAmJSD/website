@@ -7,7 +7,7 @@ title: "Rosie Duffield's Private Email Server"
 description: "Roses are red, violets are blue, Rosie Duffield has a private email server, what about you"
 ---
 
-**EDIT:** The new site on rosieduffield.co.uk is now up! All emails sent to that domain will be published there. The ending was updated to include this.
+**EDIT:** The new site on rosieduffield.co.uk is now up! All emails sent to that domain that are public interest will be published there. The ending was updated to include this.
 
 **EDIT 2:** The use of "government business" and national archives line was not accurate. This has been modified, but does not overall change the takeaway of the post.
 
