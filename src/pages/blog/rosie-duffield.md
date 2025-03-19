@@ -7,9 +7,7 @@ title: "Rosie Duffield's Private Email Server"
 description: "Roses are red, violets are blue, Rosie Duffield has a private email server, what about you"
 ---
 
-**EDIT:** The new site on rosieduffield.co.uk is now up! All emails sent to that domain that are public interest will be published there. The ending was updated to include this.
-
-**EDIT 2:** The use of "government business" and national archives line was not accurate. This has been modified, but does not overall change the takeaway of the post.
+**EDIT:** The use of "government business" and national archives line was not accurate. This has been modified, but does not overall change the takeaway of the post.
 
 Rosie Duffield is a formerly Labour MP known for her attacks against transgender people in the UK, support for the Cass review, and general pushing of transphobia within the Houses of Parliament. Unfortunately, she runs a private email server for her MP business instead of using her Parliament email, which has serious national security implications. This blog post isn't an expose on her (there's plenty of good stuff for that on the Internet), but rather her poor security practices.
 
@@ -67,4 +65,4 @@ So you might recall near the beginning of that story when I said I had to search
 
 ![rosieduffield.co.uk marked as for sale on Porkbun](/images/rosie-duffield/domain_buyable.png)
 
-I laughed my ass off at this news, this domain was just available to buy and use. I immediately bought the domain, [there is now a service to take emails sent to the domain that are public interest and put them on a webpage.](https://rosieduffield.co.uk) Probably should've parked that one Rosie, oops!
+I laughed my ass off at this news, this domain was just available to buy and use. I immediately bought the domain, and right now it just redirects back to this blog post.
