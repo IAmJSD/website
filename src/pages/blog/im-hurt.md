@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreiese5onpzkwjlg5bwhqrnhhkfcjpfrqvs3bbtfy2upfelodwnyuhy"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lmwucrj4bq2z"
 layout: ../../layouts/BlogPostLayout.astro
 title: "I'm hurt"
 description: "The supreme court are being blatantly transphobic"
