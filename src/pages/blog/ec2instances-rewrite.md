@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreiceg3qrwehjp5fvmri5m22fjl2qvw5o3m34l2nvxziw3cysnulwvy"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lt2vxwcosn2m"
 layout: ../../layouts/BlogPostLayout.astro
 title: "Rewriting ec2instances.info: The technical details"
 description: "How we rewrote ec2instances.info to be 10x quicker"
