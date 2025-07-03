@@ -70,7 +70,7 @@ And so, on May 23rd, we cut over the DNS to Cloudflare and pushed everything to 
 
 Additionally, using modern frameworks means we are able to fix problems really fast. We are finding many solutions to problems in under half an hour, which is amazing for our users.
 
-Accessibility is also much nicer on the new site too! React has such a great ecosystem of accessible components, accessibility testing with axe is far easier to do than with the old codebase (and we are starting to introduce this), and how we ensure our code is accessible. 
+Accessibility is also much nicer on the new site too! React has such a great ecosystem of accessible components, accessibility testing with axe is far easier to do than with the old codebase (and we are starting to introduce this), and we have tested our code is accessible using a screen reader (tested with VoiceOver on macOS).
 
 Overall, we are really proud of this release. Here's to confetti!
 
