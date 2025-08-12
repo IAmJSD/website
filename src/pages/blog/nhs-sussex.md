@@ -1,9 +1,6 @@
 ---
-bluesky:
-    cid: "bafyreidt3xvee3z2aui3yzygx3jt5eulbkgtxoxj4fesbyyew4hpkhqfiq"
-    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lw75xnevvt25"
 title: "A letter to NHS Sussex"
-description: "Dr Sam Hall means so much to this whole community. I wrote a letter about what WellBN."
+description: "Dr Sam Hall means so much to this whole community. I wrote a letter about what WellBN did for me."
 layout: ../../layouts/BlogPostLayout.astro
 ---
 
