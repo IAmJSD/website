@@ -25,8 +25,8 @@ const loginPromise = agent.login({
 async function post(fp: string, attrs: { title: string; description: string }, content: string) {
     await loginPromise;
     const fileName = path.basename(fp).replace(".md", "");
-    let shortDescription = '"' + attrs.description.slice(0, 100).replace(/["]/g, "");
-    if (attrs.description.length > 100) {
+    let shortDescription = '"' + attrs.description.slice(0, 295).replace(/["]/g, "");
+    if (attrs.description.length > 295) {
         shortDescription += "...";
     }
     shortDescription += '"';
