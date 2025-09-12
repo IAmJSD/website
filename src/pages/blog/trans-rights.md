@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreiahfh4qu6uz6julhpjoj5d4z4xevxrebdnp5plkiwqiuwr6vapubq"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lyo7xio5gm24"
 layout: ../../layouts/BlogPostLayout.astro
 title: "Why are trans people so political?"
 description: "Transgender individuals are targeted and harassed, and then people wonder why we're politically active?"
