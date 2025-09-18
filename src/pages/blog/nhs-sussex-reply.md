@@ -9,7 +9,7 @@ description: "NHS Sussex replied. I am not satisfied."
 
 This is a followup email to the reply I got after [this email](https://astrid.place/blog/nhs-sussex). You can see the original reply from them [here](https://bsky.app/profile/did:plc:ij5756nvubeeqo2kn6eeezdx/post/3lz25gygugk23).
 
-<hr />
+<hr class="my-4" />
 
 To whom this may concern,
 
