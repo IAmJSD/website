@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreicmh5ttrpmva6gulvz4usxrimwchw6ithnl4nodm7wgp72a5ztt74"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lz4am2ilew2s"
 layout: ../../layouts/BlogPostLayout.astro
 title: "My reply to NHS Sussex"
 description: "NHS Sussex replied. I am not satisfied."
