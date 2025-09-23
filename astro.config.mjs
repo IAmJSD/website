@@ -6,7 +6,6 @@ import rehypeSemanticImages from "@benjc/rehype-semantic-images";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "static",
     integrations: [tailwind()],
     adapter: cloudflare(),
     prefetch: {

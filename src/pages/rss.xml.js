@@ -2,6 +2,8 @@ import child_process from "child_process";
 import rss from "@astrojs/rss";
 import { url } from "../info";
 
+export const prerender = true;
+
 const blogPosts = import.meta.glob("./blog/*.md");
 
 export async function GET() {
