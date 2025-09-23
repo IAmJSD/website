@@ -1,0 +1,7 @@
+{
+    "name": "personal-website",
+    "compatibility_date": "2025-09-23",
+    "assets": {
+       "directory": "./public"
+    }
+}
