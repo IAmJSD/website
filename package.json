@@ -20,7 +20,7 @@
         "@atproto/api": "^0.13.18",
         "@fontsource/jetbrains-mono": "^5.1.1",
         "@fontsource/opendyslexic": "^5.1.0",
-        "astro": "^5.13.3",
+        "astro": "^5.15.6",
         "tailwindcss": "^3.4.13",
         "typescript": "^5.6.2"
     },
