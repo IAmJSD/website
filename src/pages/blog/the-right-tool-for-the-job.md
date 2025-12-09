@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreie4zvmhhw2ojd3ecq6z3zy5r2qhjokd27ogy6i3yj7c7wdktqrika"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3m7leai6xpl2l"
 layout: ../../layouts/BlogPostLayout.astro
 title: "The right tool for the job"
 description: "The anti-rust cult is wrong. Here's why."
