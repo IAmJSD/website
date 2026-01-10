@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreid3ciomiqfttvvkglxnb76r42iyrtxu4chdothbaqi4nyemlq6u5q"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3mc3tuuelx32k"
 title: "My stance on blocking Twitter (X)"
 description: "Elon fucked around and found out. This doesn't mean a free and open internet isn't important."
 layout: ../../layouts/BlogPostLayout.astro
