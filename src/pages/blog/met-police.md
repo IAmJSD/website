@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreigga6s7is3jfu6qjk4uwottnzwm7eanca3up6uvhugtlfftxani6y"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3mdtiy7uzsi2s"
 title: "The Metropolitan Police are not happy with me"
 description: "The Metropolitan Police is interviewing me about a CSV file that was publicly available being in a Git repo that I took down."
 layout: ../../layouts/BlogPostLayout.astro
