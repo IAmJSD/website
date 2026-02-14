@@ -7,7 +7,7 @@ title: I accepted a police caution
 description: "My Police caution is a danger sign to a police force without political interference and to how the police treats the law."
 ---
 
-You may have seen [my last blog post about my legal issues.](/met-police) I yesterday accepted a caution, and I thought I'd walk you through the chain of events that caused this. This isn't a decision I took lightly, but the mental pain that the Metropolitan Police put me under cannot be understated for the crime of downloading and committing to a repository nobody saw a CSV file that was publicly reported on and public interest.
+You may have seen [my last blog post about my legal issues.](/blog/met-police/) I yesterday accepted a caution, and I thought I'd walk you through the chain of events that caused this. This isn't a decision I took lightly, but the mental pain that the Metropolitan Police put me under cannot be understated for the crime of downloading and committing to a repository nobody saw a CSV file that was publicly reported on and public interest.
 
 I now have all my drives back, which were seized for the crime of committing a CSV file to Git:
 
