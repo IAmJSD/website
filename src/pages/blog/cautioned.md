@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreihtqlnq3apwqxfpfn2v75or2fhwpijireezjvfwvqntosavce7p2u"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3merrks2zky2e"
 layout: ../../layouts/BlogPostLayout.astro
 title: I accepted a police caution
 description: "My Police caution is a danger sign to a police force without political interference and to how the police treats the law."
