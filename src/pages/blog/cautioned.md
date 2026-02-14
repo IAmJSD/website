@@ -11,7 +11,7 @@ You may have seen [my last blog post about my legal issues.](/met-police) I yest
 
 I now have all my drives back, which were seized for the crime of committing a CSV file to Git:
 
-![Seized drives](/cautioned.png)
+![Seized drives](/images/cautioned.png)
 
 For the record, I have reported many people over the years for everything from being very abusive literally in front of a cop, threatening my life, to punching me in the face. None of these were dealt with properly. I don't have all the facts yet, but something is off here, and I'm going to dig deeper. This is unprecedented for the Met police.
 
