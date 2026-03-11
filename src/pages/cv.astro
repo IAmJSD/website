@@ -1,0 +1,87 @@
+---
+import "@fontsource/jetbrains-mono";
+import { name, description, phoneNumber, email, experiences, type Experience, aboutMe } from "../info";
+import { MailIcon, PhoneIcon } from "@lucide/astro";
+import Markdown from "../components/Markdown.astro";
+
+function renderInfoForExperience(experience: Experience) {
+    const endDate = experience.endDate ? experience.endDate : "Present";
+    const contract = experience.contract ? "Contractor" : "Full-Time";
+    return `${contract} - ${experience.startDate} to ${endDate}`;
+}
+---
+
+<html lang="en" transition:animate="none">
+    <head>
+        <title>CV</title>
+        <style>
+            * {
+                font-family: "JetBrains Mono", monospace;
+            }
+
+            .flex-col-if-not-print {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .flex-if-not-print {
+                display: flex;
+                gap: 1rem;
+            }
+
+            @media print {
+                .flex-col-if-not-print {
+                    display: block;
+                }
+
+                .flex-if-not-print {
+                    display: block;
+                    gap: 0;
+                }
+            }
+        </style>
+    </head>
+    <body class="p-4 my-8 max-w-6xl mx-auto">
+        <header class="mx-auto text-center">
+            <h1 class="text-2xl font-bold mb-4">{name}</h1>
+            <div class="flex justify-center space-x-4 flex-wrap">
+                <p>
+                    <a href={`mailto:${email}`}>
+                        <MailIcon class="w-4 h-4 inline-block" />
+                        {email}
+                    </a>
+                </p>
+                <p>
+                    
+                    <a href={`tel:${phoneNumber}`}>
+                        <PhoneIcon class="w-4 h-4 inline-block" />
+                        {phoneNumber}
+                    </a>
+                </p>
+            </div>
+        </header>
+        <main class="mt-8">
+            <section class="border-2 border-gray-200 p-4">
+                <h2 class="text-2xl font-bold mb-4">About Me</h2>
+                <Markdown content={aboutMe} />
+            </section>
+            <section class="p-4">
+                <h2 class="text-2xl font-bold mb-4">Experience</h2>
+                <ul>
+                    {experiences.map((experience) => (
+                        <li class="mb-8">
+                            <a href={experience.url}>
+                                <h3 class="text-xl font-bold">{experience.company}</h3>
+                                <p class="text-sm text-gray-500 mb-2">
+                                    {renderInfoForExperience(experience)}
+                                </p>
+                            </a>
+                            <Markdown content={experience.description} />
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
