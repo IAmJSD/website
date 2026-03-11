@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
         contract: false,
         startDate: "January 2023",
         endDate: "March 2024",
-        description: "At Citi, I worked on internal tooling to help with infrastructure for engineers.",
+        description: "At Citi, I worked on internal tooling to help with infrastructure.",
     },
     {
         company: "Krystal",
