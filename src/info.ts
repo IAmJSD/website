@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
         contract: false,
         startDate: "January 2023",
         endDate: "March 2024",
-        description: "I have worked on several developer tools for Vantage, including a website to check Postgres versions, some marketing internal tooling in TypeScript, some tooling to handle bootstrapping a project setup for AI workflows, and benchmarking.",
+        description: "At Citi, I worked on internal tooling to help with mapping out tooling for engineers.",
     },
     {
         company: "Krystal",
