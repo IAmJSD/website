@@ -4,7 +4,7 @@ export const description =
 export const url = "https://astrid.place";
 export const secondLine = `
     Owns Web Scale Software Ltd (currently contracted by
-    <a class="underline" href="https://neon.tech">Neon</a> and <a class="underline" href="https://vantage.sh">Vantage</a>)`;
+    <a class="underline" href="https://neon.tech">Neon</a>)`;
 export const phoneNumber = "+44 7389 867817";
 export const email = "astridgealer@gmail.com";
 
