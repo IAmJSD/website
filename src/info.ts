@@ -35,7 +35,7 @@ export const experiences: Experience[] = [
         url: "https://vantage.sh",
         contract: true,
         startDate: "April 2025",
-        endDate: null,
+        endDate: "April 2026",
         description: vantageDescription,
     },
     {
