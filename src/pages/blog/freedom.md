@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreiexbcuefrjbh5ufsou6ezwq6vt6vwdmg6sb32qctcgs35tq6df34a"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3mks7xjcqbj23"
 layout: ../../layouts/BlogPostLayout.astro
 title: "Freedom"
 description: "America is a vastly different country to the UK, and I've never felt safer."
