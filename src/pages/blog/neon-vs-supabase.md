@@ -4,7 +4,7 @@ title: "Neon vs Supabase: Which database should I use?"
 description: "Picking the correct choice is the difference between success and failure."
 ---
 
-**Legal disclosure:** Neon commissioned me to develop the following db-per-tenant migration tool and blog post.
+**Legal disclosure:** Neon commissioned me to dig into the database differences and document them here.
 
 Generally, when people are discussing databases which can scale with you traffic, the choice is between Neon and Supabase. The database you start with is so important and the result of getting this wrong can be very costly. This was always true, but is especially true in a high AI traffic and tool call world.
 
