@@ -18,7 +18,7 @@ export type Experience = {
 };
 
 const vantageDescription = `
-At Vantage, I have worked on several things:
+At Vantage, I worked on several things:
 
 - I rewrote ec2instances.info (https://instances.vantage.sh) and blogged about it on the Vantage website (https://www.vantage.sh/blog/ec2instances-architecture)! This rewrite is genuinely one of the proudest moments of my career, and I'm so lucky I was able to be involved in this.
 - I wrote newsletters.vantage.sh (https://newsletters.vantage.sh)! A tool that lets you get instances data in your inbox.
@@ -44,7 +44,8 @@ export const experiences: Experience[] = [
         contract: true,
         startDate: "September 2024",
         endDate: null,
-        description: "I have worked on several developer tools for Vantage, including a website to check Postgres versions, some marketing internal tooling in TypeScript, some tooling to handle bootstrapping a project setup for AI workflows, and benchmarking.",
+        description:
+            "I have worked on several developer tools for Neon, including a website to check Postgres versions, some marketing internal tooling in TypeScript, some tooling to handle bootstrapping a project setup for AI workflows, and benchmarking.",
     },
     {
         company: "Citi",
@@ -52,7 +53,8 @@ export const experiences: Experience[] = [
         contract: false,
         startDate: "January 2023",
         endDate: "March 2024",
-        description: "At Citi, I worked on internal tooling to help with infrastructure.",
+        description:
+            "At Citi, I worked on internal tooling to help with infrastructure.",
     },
     {
         company: "Krystal",
@@ -60,7 +62,8 @@ export const experiences: Experience[] = [
         contract: false,
         startDate: "July 2021",
         endDate: "December 2022",
-        description: "At Krystal, I helped with many different things such as their Go CLI, their Go SDK, a platform written with Ruby on Rails/Go, and their open source network tooling package written in Go.",
+        description:
+            "At Krystal, I helped with many different things such as their Go CLI, their Go SDK, a platform written with Ruby on Rails/Go, and their open source network tooling package written in Go.",
     },
     {
         company: "DigitalOcean",
@@ -68,7 +71,8 @@ export const experiences: Experience[] = [
         contract: false,
         startDate: "July 2019",
         endDate: "July 2021",
-        description: "At DigitalOcean, I worked on tooling for the community site. These were high traffic tools which were linked off from the main community site, including tooling such as DNS/SPF/nginx management. This was in the earlier days of TS tooling, and I was fundamental in making webpack wrappers that were used internally to handle our Vue configurations. I also helped in migrating parts of the old Rails community site to Next.js.",
+        description:
+            "At DigitalOcean, I worked on tooling for the community site. These were high traffic tools which were linked off from the main community site, including tooling such as DNS/SPF/nginx management. This was in the earlier days of TS tooling, and I was fundamental in making webpack wrappers that were used internally to handle our Vue configurations. I also helped in migrating parts of the old Rails community site to Next.js.",
     },
 ];
 
