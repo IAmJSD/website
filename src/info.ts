@@ -77,5 +77,5 @@ export const experiences: Experience[] = [
 ];
 
 export const aboutMe = `
-Hey! I'm Astrid, a software engineer from the UK with over 6 years of experience. I am currently looking for full time work. I have been lucky enough to have worked on many different projects (including some you may use!) and have worked for many companies which are leading at what they do. I mainly work with TypeScript and Go, but have experience with many other languages and frameworks. I am looking for work within the UK or EU.
+Hey! I'm Astrid, a software engineer from the UK with over 6 years of experience. I am currently looking for full time work. I have been lucky enough to have worked on many different projects (including some you may use!) and have worked for many companies which are leading at what they do. I mainly work with TypeScript and Go, but have experience with many other languages and frameworks. I am looking for work within the UK, EU, or US.
 `;
