@@ -5,11 +5,17 @@ import { z } from "astro:schema";
 export const server = {
     submitContactForm: defineAction({
         input: z.object({
+            category: z.enum(["work", "property"]),
             email: z.string().email(),
             message: z.string(),
             token: z.string(),
         }),
-        async handler({ email, message, token }) {
+        async handler({ category, email, message, token }) {
+            const categoryLabel = {
+                work: "Work",
+                property: "Property",
+            }[category];
+
             // Validate the Turnstile token.
             const turnstileResponse = await fetch(
                 "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -43,11 +49,16 @@ export const server = {
                         {
                             title: "New contact form submission",
                             fields: [
+                                {
+                                    name: "Category",
+                                    value: categoryLabel,
+                                    inline: true,
+                                },
                                 { name: "Email", value: email, inline: true },
                                 {
                                     name: "Message",
                                     value: message,
-                                    inline: true,
+                                    inline: false,
                                 },
                             ],
                         },

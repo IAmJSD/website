@@ -1,34 +1,84 @@
 ---
-import Button from "../components/Button.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import { description, name, secondLine } from "../info";
+import { description, name } from "../info";
 
 export const prerender = true;
 ---
 
 <MainLayout>
-    <div class="justify-center items-center flex h-screen">
-        <div class="text-center max-w-6xl block mx-4">
-            <h1 class="text-4xl font-bold">{name}</h1>
-            <h2 class="text-2xl mt-4">{description}</h2>
-            <h3 class="text-xl mt-4" set:html={secondLine} />
+    <div class="min-h-screen flex flex-col">
+        <header class="flex justify-end p-4 sm:p-6">
+            <a
+                href="/blog"
+                class="p-3 border-2 border-black dark:border-white rounded-md text-lg font-bold hover:underline"
+            >
+                Blog
+            </a>
+        </header>
 
-            <div class="flex mt-6 space-x-4 justify-center">
-                <span class="flex-col">
-                    <Button text="Blog" href="/blog" />
-                </span>
-                <span class="flex-col">
-                    <Button text="Contact" id="contact_button" />
-                </span>
+        <main class="flex flex-1 items-center justify-center px-4 pb-10">
+            <div class="w-full max-w-6xl">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold">{name}</h1>
+                    <h2 class="text-2xl mt-4">{description}</h2>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2 mt-8">
+                    <section
+                        class="border-2 border-black dark:border-white rounded-md p-5 flex flex-col"
+                    >
+                        <h2 class="text-2xl font-bold">Work</h2>
+                        <p class="text-lg mt-4">
+                            I'm actively looking for work. I'm strongest with
+                            TypeScript, Go, full-stack development, developer
+                            tools, Postgres, infrastructure tooling, and
+                            practical product engineering.
+                        </p>
+                        <p class="text-lg mt-4">
+                            I'm open to roles in the UK, EU, or US, including
+                            full-time work and contract projects.
+                        </p>
+                        <button
+                            type="button"
+                            class="p-3 border-2 border-black dark:border-white rounded-md text-lg font-bold mt-6 w-full hover:underline"
+                            data-contact-category="work"
+                        >
+                            Contact about work
+                        </button>
+                    </section>
+
+                    <section
+                        class="border-2 border-black dark:border-white rounded-md p-5 flex flex-col"
+                    >
+                        <h2 class="text-2xl font-bold">London Property</h2>
+                        <p class="text-lg mt-4">
+                            I'm looking for property in London. If you know of a
+                            suitable flat, room, rental, or lead, I'd like to
+                            hear about it.
+                        </p>
+                        <p class="text-lg mt-4">
+                            Note that due to my previous landlord, I cannot give a
+                            tenancy reference, however I can provide proof I can pay
+                            and a letter from the council.
+                        </p>
+                        <button
+                            type="button"
+                            class="p-3 border-2 border-black dark:border-white rounded-md text-lg font-bold mt-6 w-full hover:underline"
+                            data-contact-category="property"
+                        >
+                            Contact about property
+                        </button>
+                    </section>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <dialog id="modal" class="fixed inset-0 z-50">
         <div class="fixed inset-0 bg-black bg-opacity-50"></div>
         <div class="fixed inset-0 flex items-center justify-center">
             <div
-                class="bg-white dark:bg-gray-900 dark:text-white p-4 mx-4 rounded-lg max-w-2xl"
+                class="bg-white dark:bg-gray-900 dark:text-white p-4 mx-4 border-8 border-black rounded-lg max-w-2xl"
                 id="modal_content"
             >
                 <header>
@@ -38,11 +88,13 @@ export const prerender = true;
                                 ✖
                             </button>
                         </form>
-                        <h1 class="text-2xl font-bold">Contact Me</h1>
+                        <h1 class="text-2xl font-bold" id="modal_title">
+                            Contact Me
+                        </h1>
                     </div>
                 </header>
                 <hr class="my-4 dark:border-gray-600 border-gray-300" />
-                <p class="text-lg">
+                <p class="text-lg" id="modal_intro">
                     Want to contact me personally? Write a message here and
                     presuming it isn't spam, I'll get back to you as soon as
                     possible!
@@ -55,6 +107,11 @@ export const prerender = true;
                 </div>
 
                 <form method="post" id="contact_form">
+                    <input
+                        type="hidden"
+                        name="category"
+                        id="contact_category"
+                    />
                     <input
                         type="email"
                         name="email"
@@ -93,13 +150,38 @@ export const prerender = true;
 <script>
     import { actions } from "astro:actions";
 
-    // Get the modal from the DOM once.
     const modal = document.getElementById("modal") as HTMLDialogElement;
+    const modalTitle = document.getElementById("modal_title")!;
+    const modalIntro = document.getElementById("modal_intro")!;
+    const categoryInput = document.getElementById(
+        "contact_category",
+    ) as HTMLInputElement;
 
-    // Open the modal when the contact button is clicked.
-    document.getElementById("contact_button")!.onclick = () => {
-        modal.showModal();
-    };
+    const contactCopy = {
+        work: {
+            title: "Contact About Work",
+            intro: "Tell me about the role, project, timeline, and the best way to follow up.",
+        },
+        property: {
+            title: "Contact About Property",
+            intro: "Tell me about the London property, location, rent, move-in timing, and the best way to follow up.",
+        },
+    } as const;
+
+    document
+        .querySelectorAll<HTMLButtonElement>("[data-contact-category]")
+        .forEach((button) => {
+            button.onclick = () => {
+                const category = button.dataset
+                    .contactCategory as keyof typeof contactCopy;
+                const copy = contactCopy[category];
+
+                categoryInput.value = category;
+                modalTitle.textContent = copy.title;
+                modalIntro.textContent = copy.intro;
+                modal.showModal();
+            };
+        });
 
     // Close the modal when the user clicks on it.
     modal.onclick = () => {
@@ -130,8 +212,15 @@ export const prerender = true;
 
         const form = event.target as HTMLFormElement;
         const formData = new FormData(form);
+        const category = formData.get("category");
+
+        if (category !== "work" && category !== "property") {
+            showError("Choose a contact category.");
+            return;
+        }
 
         const { data, error } = await actions.submitContactForm({
+            category,
             email: formData.get("email") as string,
             message: formData.get("message") as string,
             token: (window as any).turnstile.getResponse(),
