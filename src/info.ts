@@ -2,8 +2,7 @@ export const name = "Astrid Gealer";
 export const description =
     "Hi! My name is Astrid Gealer and I am a passionate developer from the UK who has experience with full-stack development.";
 export const url = "https://astrid.place";
-export const phoneNumber = "+44 7389 867817";
-export const email = "astridgealer@gmail.com";
+export const email = "astrid@infrawrench.com";
 
 export type Experience = {
     company: string;
@@ -14,6 +13,13 @@ export type Experience = {
     description: string;
 };
 
+const infrawrenchDescription = `I founded Infrawrench and I have worked on multiple things there:
+
+- Founded the main desktop application and cloud application (https://infrawrench.com, source available at https://github.com/Infrawrench/Infrawrench), this is a cloud management platform for both humans and agents that supports over 50 providers! In working with this, I wrote significant amounts of React for both desktop and mobile.
+- I made electron-builder 100x quicker for pnpm 9 (https://github.com/electron-userland/electron-builder/pull/9732)!
+- I wrote Schist, a Photoshop and Lightroom alternative with a Picasa like UI written in Rust (https://schist.app). This tool also has a work in progress cloud platform.
+`;
+
 const vantageDescription = `
 At Vantage, I worked on several things:
 
@@ -22,11 +28,19 @@ At Vantage, I worked on several things:
 - I wrote instances-mcp.vantage.sh (https://instances-mcp.vantage.sh)! A tool that lets you get instances data in your MCP client.
 - I wrote the official Python (https://github.com/vantage-sh/vantage-python) and TypeScript (https://github.com/vantage-sh/vantage-ts) clients for the SDK. If you use the core product and one of these languages, I think you will love this. I spent a lot of time on the typing of the TypeScript library in particular, and am really proud of the results. I don't think it feels like just another OpenAPI client.
 - I rewrote the entire vantage-mcp-server (https://github.com/vantage-sh/vantage-mcp-server). A lot of the history was squashed into a single Git commit, but I was responsible for the "on Rails" structure of it and the TS library that powers it.
-- If you use the core product and generate clients based on the OpenAPI specification, you may well have noticed that the specifications improved significantly and now match the actual responses much more closely. This was me! I updated the Ruby code on the backend to make sure the responses better aligned with the schemas. It's still imperfect — there's more work to do, and there are limitations with the framework being used — but it's far better than it was.
+- If you use the core product and generate clients based on the OpenAPI specification, you may well have noticed that the specifications improved significantly and now match the actual responses much more closely. This was me! I updated the Ruby code on the backend to make sure the responses better aligned with the schemas. It's still imperfect, there's more work to do, and there are limitations with the framework being used, but it's far better than it was.
 - I wrote https://vantage.sh/models - This site is an incredible feat of engineering that brings together many different data columns through SQL queries. SQL is such a powerful way to express data, and it works really well here.
 `;
 
 export const experiences: Experience[] = [
+    {
+        company: "Infrawrench LLC",
+        url: "https://infrawrench.com",
+        contract: false,
+        startDate: "June 2026",
+        endDate: null,
+        description: infrawrenchDescription,
+    },
     {
         company: "Vantage",
         url: "https://vantage.sh",

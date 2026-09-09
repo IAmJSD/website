@@ -1,6 +1,6 @@
 ---
 import "@fontsource/jetbrains-mono";
-import { name, description, phoneNumber, email, experiences, type Experience, aboutMe } from "../info";
+import { name, description, email, experiences, type Experience, aboutMe } from "../info";
 import { MailIcon, PhoneIcon } from "@lucide/astro";
 import Markdown from "../components/Markdown.astro";
 
@@ -50,13 +50,6 @@ function renderInfoForExperience(experience: Experience) {
                     <a href={`mailto:${email}`}>
                         <MailIcon class="w-4 h-4 inline-block" />
                         {email}
-                    </a>
-                </p>
-                <p>
-                    
-                    <a href={`tel:${phoneNumber}`}>
-                        <PhoneIcon class="w-4 h-4 inline-block" />
-                        {phoneNumber}
                     </a>
                 </p>
             </div>
